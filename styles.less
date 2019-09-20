@@ -6,18 +6,26 @@
 @font-gray:  rgba(127, 127, 127, 1);
 @font-lgray: rgba(227, 226, 224, 1);
 @con-max-width: 700px;
-@global-font: agency_fb;
+@global-font: helvetica;
 @fn-sz-sm : 12px;
 @fn-sz-md : 14px;
 @fn-sz-lr : 16px;
-@fn-sz-vvl: 50px;
-@fn-sz-vl: 30px;
+@fn-sz-vvl: 36px;
+@fn-sz-vl: 28px;
 @font-blue: rgba(76,161,213,1);
 
-// agency fb web font
+// helvetica
 @font-face {
-    font-family: agency_fb;
-    src: url(Agency_FB.ttf);
+    font-family: helvetica;
+    src: url(fonts/HelveticaNeueThin.ttf);
+}
+@font-face {
+  font-family: helveticaMedium;
+  src: url(fonts/HelveticaNeueMedium.ttf);
+}
+@font-face {
+  font-family: helveticaLight;
+  src: url(fonts/HelveticaNeueLight.ttf);
 }
 
 // useful methods
@@ -40,6 +48,7 @@
 }
 .list-style-square{
     list-style-type: square;
+    line-height: 18px;
 }
 .pull-left{
     display: block;
@@ -58,7 +67,7 @@
 
 body{
     .zero-box;
-    font-family: agency_fb;
+    font-family: helvetica;
     background: gray;
 }
 .container{
@@ -75,15 +84,16 @@ body{
     box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 
     .header{
+        position: relative;
         width: @full-dim-per;
         height: @header-ht;
         background: @header-color;
         color: white;
         font-size: @fn-sz-vvl;
         .boxsizing;
-        padding-top: 30px;
+        padding-top: 20px;
         .pull-left;
-        .name{
+        .identity{
             width: 70%;
             height: 50px;
             .pull-left;
@@ -97,6 +107,9 @@ body{
             }
         }
         .contact{
+            position: absolute;
+            right: 0;
+            bottom: 10px;
             width: 30%;
             height: 50px;
             .pull-left;
@@ -119,7 +132,8 @@ body{
                     .spacing;
                 }
                 .phoneimg{
-                    background: url('phone.png');
+                    background: url(phone.jpg);
+                    transform: rotateZ(-90deg);
                     width: 15px;
                     height: 15px;
                     background-repeat: no-repeat;
@@ -144,7 +158,6 @@ body{
             .uppercase;
             font-size: @fn-sz-vl;
             .spacing;
-            padding-left: 30px;
             padding-top: 10px;
             span{
             .blue-font;
@@ -162,6 +175,7 @@ body{
             .setSectionProp(30%, rgba(227, 226, 224, 1));
             .skills_section, .web_pres_section, .language_section{
                 p{
+                    font-family: helveticaMedium;
                     margin: 10px;
                     font-size: 16px;
                     .uppercase;
@@ -170,6 +184,9 @@ body{
                     text-align: center;
                     margin-top: 20px;
                     margin-bottom: 0;
+                }
+                li {
+                  line-height: 30px;
                 }
             }
             .web_pres_section{
@@ -196,23 +213,19 @@ body{
                     font-size: @fn-sz-md;
                     padding-left: 25px;
                     padding-top: 5px;
+                    line-height: 20px;
                 }
                 .gpa{
                     font-size: @fn-sz-md;
                     padding-left: 25px;
-                    padding-top: 3px;
+                    padding-top: 5px;
                 }
             }
             .les_pur{
-                .setSectionProp(50%, 'white');
-                .in_headng{
-                    .pre_ln{
-                        height: 36.5px;
-                    }
-                    .in_txt{
-                        left: 84px;
-                        text-align: center;
-                    }
+                .setSectionProp(100%, 'white');
+                ul {
+                  margin-top: 0;
+                  line-height: 24px;
                 }
             }
             .wr_pl_bal{
@@ -353,6 +366,7 @@ body{
                     background: white;
                     padding: 0 5px;
                     color: @font-blue;
+                    font-family: helveticaMedium;
                 }
             } // -- end
             .in_contnt{ // content start
@@ -363,44 +377,51 @@ body{
                     width: @full-dim-per;
                     .boxsizing;
                     .zero-box;
+                    padding-bottom: 10px;
+                    .role_desc {
+                      display: flex;
+                    }
                     .main_txt{
-                        .setSectionProp(65%, 'white'); 
                         .boxsizing;
                         .spacing;
                         font-size: @fn-sz-md;
                         font-weight: bold;
                         padding-left: 25px;
                         .uppercase;
+                        display: inline-block;
+                        flex-grow: 1;
+                        font-family: helveticaLight;
                     }
                     .duration{
-                        .setSectionProp(35%, 'white'); 
                         .boxsizing;
-                        .pull-left;
-                        width: 35%;
+                        width: 40%;
                         background: 0 0;
                         box-sizing: border-box;
                         font-size: 14px;
                         color: @font-gray;
                         padding: 0 20px;
                         text-align: right;
+                        display: inline-block;
                     }
                     .company{
-                        .setSectionProp(100%, 'white'); 
                         .boxsizing;
                         padding-left: 25px;
                         padding-top: 5px;
                         font-size: 13px;
                         font-weight: bold;
+                        font-family: helveticaLight;
                         .spacing;
                     }
                     .desc{
-                        .setSectionProp(95%, 'white'); 
                         .boxsizing;
                         font-size: 13px;
                         ul{
                             margin-top: 8px;
                         }
                     }
+                }
+                .postn:last-child {
+                  padding-bottom: 0;
                 }
             } // end
         }
